@@ -13,7 +13,7 @@ import getpass
 import os
 
 
-os.environ["TAVILY_API_KEY"] = "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"
+os.environ["TAVILY_API_KEY"] = "INSERT KEY HERE"
 tool = TavilySearchResults(max_results=1)
 
 tools = [tool]
@@ -30,7 +30,7 @@ llm = LlamaCpp(
     max_tokens = 4000,
     # n_predict = 1000,
     n_ctx=2048,
-    model_path="/Users/velocity/Documents/Holder/Project/CodingStuff/VICUNA/llama.cpp/models/Mistral/mixtral-8x7b-instruct-v0.1.Q6_K.gguf",
+    model_path="INSERT MODEL PATH HERE",
     n_gpu_layers=n_gpu_layers,
     n_batch=n_batch,
     callback_manager=callback_manager,
@@ -49,7 +49,7 @@ agent = create_react_agent(llm, tools, prompt)
 agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 
 # agent_executor.invoke({"input": "How much will the apple vision pro cost"})
-agent_executor.invoke({"input": "What happened at the burning man floods"})
+# agent_executor.invoke({"input": "What happened at the burning man floods"})
 # agent_executor.invoke({"input": "What was the GPT4 Release date"})
 
 
